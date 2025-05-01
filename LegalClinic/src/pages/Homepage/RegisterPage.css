@@ -1,0 +1,78 @@
+/* تجعل الصفحة كاملة بلون ناعم وتوسّط العنصر */
+.register-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* الصندوق الأبيض */
+  .register-form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  /* عنوان */
+  .register-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  /* الحقول */
+  .register-form input,
+  .register-form select {
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+  }
+  
+  .register-form input:focus,
+  .register-form select:focus {
+    border-color: #3f51b5;
+    outline: none;
+  }
+  
+  /* زر التسجيل */
+  .register-form button {
+    padding: 14px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-form button:hover {
+    background-color: #2c3e91;
+  }
+  
+  /* حركة دخول */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
