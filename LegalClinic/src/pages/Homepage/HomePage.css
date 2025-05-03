@@ -1,7 +1,6 @@
-/* تجعل العنصر يملأ الشاشة وتوسّطه تمامًا */
 .home-wrapper {
   position: fixed;
-  inset: 0; /* top:0, bottom:0, left:0, right:0 */
+  inset: 0; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +9,7 @@
   z-index: 0;
 }
 
-/* الصندوق الأبيض */
+
 .home-card {
   background-color: white;
   padding: 60px 50px;
@@ -21,13 +20,13 @@
   text-align: center;
 }
 
-/* شعار */
+
 .home-logo {
   width: 120px;
   margin-bottom: 20px;
 }
 
-/* عنوان */
+
 .home-title {
   font-size: 2.6rem;
   font-weight: bold;
@@ -35,14 +34,14 @@
   color: #222;
 }
 
-/* وصف */
+
 .home-subtitle {
   font-size: 1.1rem;
   color: #555;
   margin-bottom: 30px;
 }
 
-/* أزرار */
+
 .home-buttons {
   display: flex;
   justify-content: center;
