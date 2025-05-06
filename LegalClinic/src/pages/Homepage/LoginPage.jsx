@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { login } from '../../utilities/user-api';
+import { useNavigate } from 'react-router'
+
 import './LoginPage.css';
 
-function LoginPage() {
+function LoginPage({ setUser, setProfile }) {
+  const navigate = useNavigate()
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -13,8 +17,11 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login submitted:', form);
-    
+    const loggedInUser = login(form)
+    setUser(newUser.user)
+    setProfile(newUser.profile)
+    navigate("/")
+
   };
 
   return (
@@ -23,9 +30,9 @@ function LoginPage() {
         <h2>Login</h2>
 
         <input
-          type="email"
-          name="email"
-          placeholder="Email"
+          type="text"
+          name="username"
+          placeholder="username"
           value={form.email}
           onChange={handleChange}
           required

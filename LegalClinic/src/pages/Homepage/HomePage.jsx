@@ -1,8 +1,8 @@
 import React from 'react';
 import './HomePage.css';
 import { useNavigate } from 'react-router';
-import logo from '../../assets/image1.png';
-function HomePage() {
+import logo from '../../assets/image2.png';
+function HomePage({ user }) {
   const navigate = useNavigate();
 
   return (
@@ -11,10 +11,11 @@ function HomePage() {
         <img src={logo} alt="Legal Clinic Logo" className="home-logo" />
         <h1 className="home-title">Legal Clinic</h1>
         <p className="home-subtitle">Free Legal Support from Volunteer Lawyers</p>
+        {!user && 
         <div className="home-buttons">
           <button onClick={() => navigate('/register')}>Register</button>
           <button onClick={() => navigate('/login')}>Login</button>
-        </div>
+        </div>}
       </div>
     </div>
   );

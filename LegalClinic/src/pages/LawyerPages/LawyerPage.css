@@ -1,0 +1,102 @@
+
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f2f2;
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+}
+
+
+.form-container.signup {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: white;
+  border: 5px solid #008b8b;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-container.signup::before {
+  content: "";
+  display: block;
+  background-image: url('../../assets/image2.png');
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+}
+
+
+.page-header {
+  text-align: center;
+  padding: 20px 0 10px;
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+
+form table {
+  width: 100%;
+  padding: 0 20px;
+}
+
+th {
+  text-align: right;
+  font-size: 14px;
+  color: #2c3e50;
+  padding-bottom: 5px;
+}
+
+td {
+  padding-bottom: 20px;
+}
+
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border-color: #008b8b;
+  outline: none;
+}
+
+
+p {
+  font-size: 13px;
+  color: #e74c3c;
+  margin-top: 5px;
+}
+
+
+.btn.submit {
+  display: block;
+  width: 90%;
+  margin: 20px auto 30px;
+  padding: 12px;
+  background-color: #008b8b;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn.submit:hover {
+  background-color: #006f6f;
+}
+
+.btn.submit:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

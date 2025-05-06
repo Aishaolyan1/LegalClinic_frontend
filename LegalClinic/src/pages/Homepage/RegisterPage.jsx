@@ -1,76 +1,110 @@
 import React, { useState } from 'react';
-
+import { signup as usersAPI } from '../../utilities/user-api';
+import { useNavigate } from 'react-router';
+import logo from '../../assets/image2.png';
 import './RegisterPage.css';
 
-function RegisterPage() {
-  const [form, setForm] = useState({
-    fullName: '',
-    email: '',
+export default function SignupPage({ setUser, setProfile }) {
+  const navigate = useNavigate();
+  const initialState = {
+    username: "",
+    password: "",
+    confirmPassword: "",
+    email: "",
+    role: "client"
+  };
+
+  const [formData, setFormData] = useState(initialState);
+  const [errors, setErrors] = useState({
+    username: '',
     password: '',
-    confirmPassword: '',
-    role: 'client',
+    email: '',
+    confirmPassword: ''
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const disabled = Object.values(errors).some(err => err !== '') || 
+                   Object.values(formData).some(val => val === '');
 
-  const handleSubmit = (e) => {
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    validateField(name, value);
+  }
+
+  function validateField(name, value) {
+    const update = { ...errors };
+
+    if (name === 'username') {
+      update.username = value.length < 3 ? 'Username must be at least 3 characters' : '';
+    }
+    if (name === 'email') {
+      update.email = !value.includes('@') ? 'Invalid email format' : '';
+    }
+    if (name === 'password') {
+      update.password = value.length < 3 ? 'Password too short' : '';
+    }
+    if (name === 'confirmPassword') {
+      update.confirmPassword = value !== formData.password ? 'Passwords do not match' : '';
+    }
+
+    setErrors(update);
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log('Form submitted:', form);
-    // TODO: send form to Django API
-  };
+    try {
+      const newUser = await usersAPI(formData);
+      setUser(newUser.user)
+      setProfile(newUser.profile)
+      navigate('/');
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
-    <div className="register-wrapper">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Register</h2>
+    <div className="signup-wrapper">
+      <div className="signup-card">
+        <img src={logo} alt="Logo" className="signup-logo" />
+        <h2 className="signup-title">Create an Account</h2>
+        <form onSubmit={handleSubmit} className="signup-form">
 
-        <input
-          type="text"
-          name="fullName"
-          placeholder="Full Name"
-          value={form.fullName}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-group">
+            <label>Username</label>
+            <input type="text" name="username" value={formData.username} onChange={handleChange} />
+            {errors.username && <span className="error">{errors.username}</span>}
+          </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-group">
+            <label>Email</label>
+            <input type="text" name="email" value={formData.email} onChange={handleChange} />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-group">
+            <label>Password</label>
+            <input type="password" name="password" value={formData.password} onChange={handleChange} />
+            {errors.password && <span className="error">{errors.password}</span>}
+          </div>
 
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={form.confirmPassword}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
+            {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+          </div>
 
-        <select name="role" value={form.role} onChange={handleChange}>
-          <option value="client">Client</option>
-          <option value="lawyer">Lawyer</option>
-        </select>
+          <div className="form-group">
+            <label>Select Role</label>
+            <select name="role" value={formData.role} onChange={handleChange}>
+              <option value="client">Client</option>
+              <option value="lawyer">Lawyer</option>
+            </select>
+          </div>
 
-        <button type="submit">Register</button>
-      </form>
+          <button type="submit" disabled={disabled} className="submit-btn">Sign Up</button>
+        </form>
+      </div>
     </div>
   );
 }
-
-export default RegisterPage;
