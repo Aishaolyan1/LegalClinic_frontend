@@ -37,12 +37,12 @@ const AddCaseForm = () => {
     return (
       <div className="add-case-wrapper">
         <div className="add-case-card-container">
-          {/* الصورة بجانب النموذج */}
+          {/* Image next to the form */}
           <div className="case-image">
             <img src={caseImage} alt="Case Visual" />
           </div>
   
-          {/* الفورم */}
+          {/* form */}
           <div className="add-case-card">
             <h2>Add New Case</h2>
             <form className="add-case-form" onSubmit={handleSubmit}>
