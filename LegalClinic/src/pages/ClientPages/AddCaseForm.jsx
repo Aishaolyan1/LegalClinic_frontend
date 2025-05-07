@@ -26,8 +26,8 @@ const AddCaseForm = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       console.log('Submitted:', formData);
-      // تنفيذ الإرسال الحقيقي هنا
-      navigate('/client'); // الرجوع إلى صفحة العميل بعد الإرسال
+      // Perform real sending here
+      navigate('/client'); // Return to customer page after submission
     };
   
     const handleCancel = () => {
