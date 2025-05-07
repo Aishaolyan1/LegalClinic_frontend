@@ -7,7 +7,7 @@ import './LoginPage.css';
 function LoginPage({ setUser, setProfile }) {
   const navigate = useNavigate()
   const [form, setForm] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -17,7 +17,7 @@ function LoginPage({ setUser, setProfile }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const loggedInUser = login(form)
+    const newUser = login(form)
     setUser(newUser.user)
     setProfile(newUser.profile)
     navigate("/")

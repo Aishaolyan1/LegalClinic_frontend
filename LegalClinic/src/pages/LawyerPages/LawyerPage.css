@@ -1,102 +1,82 @@
-
-body, html {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f2f2;
-  direction: rtl;
+/* إعدادات عامة */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
-.form-container.signup {
-  max-width: 400px;
-  margin: 60px auto;
-  background-color: white;
-  border: 5px solid #008b8b;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+body, html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
 }
 
-
-.form-container.signup::before {
-  content: "";
-  display: block;
-  background-image: url('../../assets/image2.png');
-  background-size: cover;
-  background-position: center;
-  height: 150px;
+/* الصفحة الكاملة */
+.lawyer-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom right, #eef2f7, #ffffff);
 }
 
+/* تنسيق الهيكل الرئيسي */
+.main-layout {
+  display: flex;
+  flex: 1;
+  padding: 2rem;
+}
 
-.page-header {
-  text-align: center;
-  padding: 20px 0 10px;
-  font-size: 20px;
+/* محتوى الصفحة */
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  margin-right: 2rem;
+}
+
+.content h1 {
+  font-size: 2rem;
   color: #2c3e50;
+  margin-bottom: 1rem;
 }
 
-
-form table {
-  width: 100%;
-  padding: 0 20px;
+.content p {
+  font-size: 1.1rem;
+  color: #555;
 }
 
-th {
-  text-align: right;
-  font-size: 14px;
+/* الشريط الجانبي */
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-left: 4px solid #007bff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.sidebar h3 {
+  font-size: 1.3rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  font-size: 1rem;
   color: #2c3e50;
-  padding-bottom: 5px;
-}
-
-td {
-  padding-bottom: 20px;
-}
-
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: border 0.3s;
-}
-
-input:focus {
-  border-color: #008b8b;
-  outline: none;
-}
-
-
-p {
-  font-size: 13px;
-  color: #e74c3c;
-  margin-top: 5px;
-}
-
-
-.btn.submit {
-  display: block;
-  width: 90%;
-  margin: 20px auto 30px;
-  padding: 12px;
-  background-color: #008b8b;
-  color: white;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 8px;
+  border-bottom: 1px solid #eee;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.2s;
 }
 
-.btn.submit:hover {
-  background-color: #006f6f;
-}
-
-.btn.submit:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.sidebar ul li:hover {
+  padding-left: 5px;
+  color: #007bff;
+  background-color: #f1f9ff;
 }

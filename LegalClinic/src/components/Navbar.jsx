@@ -20,6 +20,7 @@ export default function Navbar({ user, setUser, profile }) {
         { user && profile?.is_lawyer &&
           <>
             <span style={styles.welcome}>Welcome, {user.username}</span>
+            <button onClick={handleLogout} style={styles.button}>Logout</button>
           </>
         }
 
@@ -27,6 +28,8 @@ export default function Navbar({ user, setUser, profile }) {
         { user && !profile?.is_lawyer &&
           <>
             <span style={styles.welcome}>Welcome, {user.username}</span>
+            <Link to="/client/add-case">Add Case</Link>
+            <button onClick={handleLogout} style={styles.button}>Logout</button>
           </>
         }
 
@@ -38,7 +41,6 @@ export default function Navbar({ user, setUser, profile }) {
           </>
         }
 
-        <button onClick={handleLogout} style={styles.button}>Logout</button>
       </div>
     </nav>
   );

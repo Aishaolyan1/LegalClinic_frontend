@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LawyerPage.css';
 import profileImage from '../../assets/image1.png';
-
+import { useNavigate } from "react-router";
 
 function LawyerPage() {
   const [dropdownOpen, setDropdownOpen] = useState(false);

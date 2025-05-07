@@ -1,0 +1,73 @@
+.lawyer-detail-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  .lawyer-detail-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+  }
+  
+  .lawyer-detail-container p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .lawyer-detail-container strong {
+    color: #555;
+  }
+  
+  .message-box {
+    width: 100%;
+    height: 120px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .message-box:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .send-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .back-link:hover {
+    color: #0056b3;
+  }
+  

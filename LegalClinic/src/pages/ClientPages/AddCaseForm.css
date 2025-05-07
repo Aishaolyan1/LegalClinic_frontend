@@ -1,0 +1,104 @@
+.add-case-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #dbeafe, #f0f9ff);
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2rem;
+  }
+  
+  .add-case-card {
+    background-color: #ffffff;
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .add-case-card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+    color: #1e3a8a;
+  }
+  
+  .add-case-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .add-case-form input[type="text"],
+  .add-case-form input[type="file"],
+  .add-case-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .add-case-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .add-case-form input:focus,
+  .add-case-form textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .form-buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button[type="submit"] {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #1d4ed8;
+  }
+  
+  button[type="button"] {
+    background-color: #f3f4f6;
+    color: #374151;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #e5e7eb;
+  }
+  .add-case-card-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .case-image img {
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }

@@ -11,7 +11,9 @@ export default function SignupPage({ setUser, setProfile }) {
     password: "",
     confirmPassword: "",
     email: "",
-    role: "client"
+    role: "client",
+    gender: "m",
+    city: "j"
   };
 
   const [formData, setFormData] = useState(initialState);
@@ -99,6 +101,23 @@ export default function SignupPage({ setUser, setProfile }) {
             <select name="role" value={formData.role} onChange={handleChange}>
               <option value="client">Client</option>
               <option value="lawyer">Lawyer</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Select Gender</label>
+            <select name="gender" value={formData.gender} onChange={handleChange}>
+              <option value="m">Male</option>
+              <option value="f">Female</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>City</label>
+            <select name="city" value={formData.city} onChange={handleChange}>
+              <option value="j">Jedda</option>
+              <option value="r">Riyadh</option>
+              <option value="m">Macca</option>
             </select>
           </div>
 

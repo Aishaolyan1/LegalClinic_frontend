@@ -8,6 +8,8 @@ import Navbar from './components/Navbar';
 import LawyerPage from './pages/LawyerPages/LawyerPage';
 import ClientPage from './pages/ClientPages/ClientPage';
 import { getUser } from './utilities/user-api';
+import AddCaseForm from './pages/ClientPages/AddCaseForm';
+import LawyerDetailPage from './components/LawyerDetailPage'
 import { useEffect } from 'react';
 function App() {
   const [user, setUser] = useState(null);
@@ -30,17 +32,20 @@ function App() {
 
   return (
     <div>
-      <Navbar user={user} profile={profile}/>
+      <Navbar user={user} profile={profile} setUser={setUser}/>
       <Routes>
         { user && profile?.is_lawyer &&
           <>
           <Route path="/*" element={<LawyerPage user={user} profile={profile} />} />
+          
           </>
         }
 
         { user && !profile?.is_lawyer &&
           <>
           <Route path="/*" element={<ClientPage user={user} profile={profile} />} />
+          <Route path="/lawyers/:lawyerId" element={<LawyerDetailPage profile={profile} />} />
+          <Route path="/client/add-case" element={<AddCaseForm />} />
           </>
         }
 
@@ -48,7 +53,8 @@ function App() {
           <>
           <Route path="/*" element={<HomePage user={user} />} />
           <Route path="/register" element={<RegisterPage setUser={setUser} setProfile={setProfile} />} />
-          <Route path="/login" element={<LoginPage setUser={setUser} />} />
+          <Route path="/login" element={<LoginPage setUser={setUser} setProfile={setProfile} />} />
+          
           </>
         }
 

@@ -1,5 +1,5 @@
 import sendRequest from "./sendRequest";
-const url = "/cases/";  // بدل "/cats/"
+const url = "/case/";  
 
 export async function index() {
     return sendRequest(url);
