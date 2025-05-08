@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { login } from '../../utilities/user-api';
+import * as usersAPI from '../../utilities/user-api';
 import { useNavigate } from 'react-router'
 
 import './LoginPage.css';
@@ -15,13 +15,14 @@ function LoginPage({ setUser, setProfile }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const newUser = login(form)
+    const newUser = await usersAPI.login(form)
     setUser(newUser.user)
     setProfile(newUser.profile)
-    navigate("/")
-
+    if (newUser.profile.is_lawyer) navigate("/Lawyerpage")
+    if (!newUser.profile.is_lawyer) navigate("/Clientpage")
+    else navigate("/home")
   };
 
   return (
